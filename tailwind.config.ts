@@ -12,22 +12,14 @@ export default {
     extend: {
       colors: {
         main: '#FD9745', //brand color
-        overlay: 'rgba(0,0,0,0.8)',
-
-        // light mode
-        bg: '#fff4e0',
-        text: '#000',
-        border: '#000',
-
-        // dark mode
+        mainLight: '#fff4e0',
+        accent: '#92cdfd',
+        accentLight: '#c4e4fe',
         darkBg: '#272933',
         darkText: '#eeefe9',
         darkBorder: '#000',
-        secondaryBlack: '#212121', // opposite of plain white, not used pitch black because borders and box-shadows are that color
+        secondaryBlack: '#291919',
 
-        // custom colors for background and foreground
-        background: "var(--background)",
-        foreground: "var(--foreground)",
       },
       borderRadius: {
         base: '10px',

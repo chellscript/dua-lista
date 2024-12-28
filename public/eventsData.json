@@ -1,0 +1,105 @@
+{
+  "customer": {
+    "id": "eventfullySarah123",
+    "name": "Sarah Socialite",
+    "email": "sarah.socialite@example.com",
+    "purchasedEvents": [
+      {
+        "id": "e1f64d2b-4b2c-4fc9-b51a-4e647cd3f1a3",
+        "eventTitle": "The Annual Charity Ball with an Incredibly Long and Unnecessarily Elaborate Title That Seems to Go On Forever and Ever Without Any Real Reason Other Than to Test the Limits of How Much Text Can Be Displayed in a Field",
+        "eventTimestamp": 1679788800000,
+        "purchaseTimestamp": 1679702400000
+      },
+      {
+        "id": "event-abc123-1",
+        "eventTitle": "Jazz Night at the Lounge",
+        "eventTimestamp": 1483648800000,
+        "purchaseTimestamp": 1482201600000
+      },
+      {
+        "id": "event-def456-2",
+        "eventTitle": "Comedy Evening Extravaganza",
+        "eventTimestamp": 1486758000000,
+        "purchaseTimestamp": 1485494400000
+      },
+      {
+        "id": "event-ghi789-3",
+        "eventTitle": "Wine Tasting Gala",
+        "eventTimestamp": 1490023200000,
+        "purchaseTimestamp": 1488326400000
+      },
+      {
+        "id": "event-jkl012-4",
+        "eventTitle": "Art Exhibit: Modern Wonders",
+        "eventTimestamp": 1493498400000,
+        "purchaseTimestamp": 1490918400000
+      },
+      {
+        "id": "event-mno345-5",
+        "eventTitle": "Outdoor Film Screening",
+        "eventTimestamp": 1497652800000,
+        "purchaseTimestamp": 1495065600000
+      },
+      {
+        "id": "event-pqr678-6",
+        "eventTitle": "Cultural Dance Showcase",
+        "eventTimestamp": 1500914400000,
+        "purchaseTimestamp": 1498780800000
+      },
+      {
+        "id": "event-stu901-7",
+        "eventTitle": "Gourmet Food Fair",
+        "eventTimestamp": 1504226400000,
+        "purchaseTimestamp": 1502150400000
+      },
+      {
+        "id": "event-vwx234-8",
+        "eventTitle": "Tech Innovators Summit",
+        "eventTimestamp": 1507394400000,
+        "purchaseTimestamp": 1505683200000
+      },
+      {
+        "id": "event-yza567-9",
+        "eventTitle": "Historical Walking Tour",
+        "eventTimestamp": 1510645200000,
+        "purchaseTimestamp": 1508976000000
+      },
+      {
+        "id": "event-bcd890-10",
+        "eventTitle": "Outdoor Yoga Retreat",
+        "eventTimestamp": 1513896000000,
+        "purchaseTimestamp": 1512172800000
+      },
+      {
+        "id": "event-efg123-11",
+        "eventTitle": "Classical Music Evening",
+        "eventTimestamp": 1516664400000,
+        "purchaseTimestamp": 1515024000000
+      },
+      {
+        "id": "event-hij456-12",
+        "eventTitle": "Charity Auction Gala",
+        "eventTimestamp": 1519749600000,
+        "purchaseTimestamp": 1518211200000
+      },
+      {
+        "id": "event-klm789-13",
+        "eventTitle": "Street Art Festival",
+        "eventTimestamp": 1522514400000,
+        "purchaseTimestamp": 1520985600000
+      },
+      {
+        "id": "event-nop012-14",
+        "eventTitle": "Mountain Biking Adventure",
+        "eventTimestamp": 1525531200000,
+        "purchaseTimestamp": 1523836800000
+      },
+      {
+        "id": "event-qrs345-15",
+        "eventTitle": "Sustainability Workshop",
+        "eventTimestamp": 1528382400000,
+        "purchaseTimestamp": 1526428800000
+      }
+    ]
+  }
+}
