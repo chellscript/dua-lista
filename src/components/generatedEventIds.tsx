@@ -2,7 +2,7 @@ import React from "react";
 
 const GeneratedIds = ({ showEventIds }: { showEventIds: string[] }) => {
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex w-full flex-col gap-y-4">
       <div className="flex items-baseline gap-x-2">
         <h3>Generated Event Ids</h3>
         <button
@@ -12,15 +12,9 @@ const GeneratedIds = ({ showEventIds }: { showEventIds: string[] }) => {
           Copy Events
         </button>
       </div>
-      <textarea
-        id="event-ids"
-        name="event-ids"
-        className="border border-secondaryBlack p-4"
-        rows={4}
-        cols={50}
-        value={showEventIds.join(" ,")}
-        readOnly
-      />
+      <div className="max-w-screen border border-secondaryBlack bg-white p-4">
+        {showEventIds.join(" ,")}
+      </div>
     </div>
   );
 };

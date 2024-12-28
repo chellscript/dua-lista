@@ -29,7 +29,7 @@ const AvaliableEvents = ({
   const deselectEvents = () => setActiveEvents([]);
 
   return (
-    <div className="flex w-11/12 flex-col rounded-base border-2 border-secondaryBlack bg-white p-4 py-2 shadow-light md:w-10/12 lg:w-full">
+    <div className="flex flex-col rounded-base border-2 border-secondaryBlack bg-white p-4 py-2 shadow-light">
       <div className="flex flex-col text-center">
         <h2 className="mb-0 text-center">Avaliable Events</h2>
         <p>A list of all the customer's purchased events</p>
@@ -51,7 +51,7 @@ const AvaliableEvents = ({
             <span className="flex flex-row items-center gap-x-2">
               Add {activeEvents.length} Event(s)!
               <span
-                className="iconify text-xl max-lg:rotate-90"
+                className="iconify text-lg max-lg:rotate-90 lg:text-xl"
                 data-icon="mdi:arrow-right-bold"
                 data-inline="true"
               />

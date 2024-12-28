@@ -18,7 +18,7 @@ const SelectButtons = ({
     <div className="flex gap-x-2 *:flex-1">
       <button
         onClick={toggleSelectEvents}
-        className="cta-button flex flex-nowrap items-center justify-center gap-x-2 bg-blue-200 text-center text-blue-950 hover:font-bold"
+        className="cta-button flex flex-nowrap items-center justify-center gap-x-2 bg-blue-200 text-center text-blue-950 hover:bg-blue-400 md:text-nowrap"
         disabled={activeEvents.length === data.length}
       >
         <span>
@@ -31,7 +31,7 @@ const SelectButtons = ({
       <button
         onClick={deselectEvents}
         disabled={!activeEvents.length}
-        className="cta-button text-nowrap bg-indigo-300 text-center text-secondaryBlack"
+        className="cta-button bg-indigo-300 text-center text-secondaryBlack md:text-nowrap"
       >
         {activeEvents.length ? (
           <span>
