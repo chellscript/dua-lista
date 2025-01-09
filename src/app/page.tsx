@@ -53,7 +53,7 @@ export default function Home() {
           <div>Id: {id}</div>
           <div>Email: {email}</div>
         </div>
-        <div className="grid grid-flow-col grid-cols-1 flex-col items-baseline justify-center *:h-full md:grid-cols-2 md:gap-x-8">
+        <div className="grid grid-flow-row grid-cols-1 flex-col items-baseline justify-center *:h-full max-md:gap-y-8 md:grid-flow-col md:grid-cols-2 md:gap-x-8">
           <AvaliableEvents
             updateData={handleAddEvents}
             data={availableEvents}
@@ -66,7 +66,7 @@ export default function Home() {
         <div className="flex justify-end">
           <button
             disabled={selectedEvents.length === 0}
-            className="button w-full rounded-md bg-main p-2 text-2xl hover:font-bold lg:w-[calc(50%-16px)]"
+            className="button w-full rounded-md bg-main p-2 text-2xl hover:font-bold md:w-[calc(50%-16px)]"
             onClick={generateEventIds}
           >
             Generate {selectedEvents.length} Event Id(s)

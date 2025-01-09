@@ -9,7 +9,7 @@ const SelectButtons = ({
   events,
 }: Omit<ListHookProps, "updateEventsData" | "toggleSortEvents">) => {
   return (
-    <div className="flex gap-x-2">
+    <div className="flex flex-col gap-x-2 max-xl:gap-2 *:max-xl:p-2 xl:flex-row">
       <button
         onClick={toggleAllActiveEvents}
         className="button flex flex-nowrap items-center justify-center gap-x-2 bg-blue-200 text-center text-blue-950 hover:bg-blue-400 md:text-nowrap"

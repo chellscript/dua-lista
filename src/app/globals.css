@@ -39,11 +39,11 @@
     @apply border border-secondaryBlack bg-white px-1 font-mono text-sm shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none hover:transition-transform hover:duration-200 hover:ease-in-out;
 
     &:disabled {
-      @apply translate-x-0 translate-y-0 border bg-gray-300 shadow-none hover:bg-gray-800/20;
+      @apply translate-x-0 translate-y-0 border bg-gray-300 shadow-none hover:grayscale;
     }
   }
 
   .move-action-button {
-    @apply flex justify-center rounded-base p-2 text-base font-bold underline disabled:font-normal disabled:no-underline max-lg:w-full md:ml-auto;
+    @apply flex justify-center p-2 text-base font-bold underline disabled:font-normal disabled:no-underline max-lg:w-full;
   }
 }
