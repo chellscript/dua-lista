@@ -1,11 +1,10 @@
 import { Event } from "../../types";
 
-
 export type ReturnedUpdates = { filtered: Event[]; remaining: Event[] };
 
 export const returnUpdatedLists = (
   data: Event[],
-  activeEvents: string[]
+  activeEvents: string[],
 ): ReturnedUpdates => {
   return data.reduce(
     (acc: ReturnedUpdates, event) => {
@@ -16,8 +15,10 @@ export const returnUpdatedLists = (
       }
       return acc;
     },
-    { filtered: [], remaining: [] }
+    { filtered: [], remaining: [] },
   );
 };
 
-
+export const handleSortBy = (property: String) => {
+  console.log("sort");
+};

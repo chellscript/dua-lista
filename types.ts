@@ -14,10 +14,26 @@ export interface Event {
   purchaseTimestamp: number;
 }
 
-
 export interface EventContainerProps {
   data: Event[] | [];
   activeEvents: string[];
   setActiveEvents: React.Dispatch<React.SetStateAction<string[]>>;
   updateList: (arg: ReturnedUpdates) => void;
+}
+
+export interface UseListHook {
+  data: Event[];
+  updateData: (arg: ReturnedUpdates) => void;
+}
+
+export type ListHookProps = {
+  events: Event[];
+  activeEvents: Event["id"][];
+  toggleActiveEvent: (id: Event["id"]) => void;
+  toggleAllActiveEvents: () => void;
+  clearActiveEvents: () => void;
+  updateEventsData: () => void;
+  toggleSortEvents: (
+    arg: keyof Pick<Event, "eventTitle" | "eventTimestamp">,
+  ) => void;
 };

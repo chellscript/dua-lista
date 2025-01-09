@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { Event } from "../../types";
+import { Event, ListHookProps } from "../../types";
 import { formatDateTime } from "@/utils/dateParser";
 import NoEvent from "./listEmpty";
 
-type EventsListProps = {
-  data: Event[] | [];
-  activeEvents: string[];
-  setActiveEvents: (arg: (prev: string[]) => string[]) => void;
+type EventsListProps = Pick<
+  ListHookProps,
+  "events" | "activeEvents" | "toggleActiveEvent" | "toggleSortEvents"
+> & {
   emptyState: {
     icon: string;
     message: string;
@@ -15,15 +15,16 @@ type EventsListProps = {
 };
 
 const EventsList = ({
-  data,
+  events,
   activeEvents,
-  setActiveEvents,
+  toggleActiveEvent,
+  toggleSortEvents,
   emptyState: { icon, message },
 }: EventsListProps) => {
   return (
     <>
       <div className="grid w-full auto-cols-max grid-cols-2 gap-4 rounded-base rounded-b-none border border-secondaryBlack bg-white p-2 pl-4 font-bold *:flex *:items-center *:gap-x-2 max-md:text-base">
-        <button onClick={() => console.log("order by name tba")}>
+        <button onClick={() => toggleSortEvents("eventTitle")}>
           <span
             className="iconify text-xl"
             data-icon="lets-icons:star"
@@ -31,7 +32,7 @@ const EventsList = ({
           />{" "}
           Event Name
         </button>
-        <button onClick={() => console.log("order by date tba")}>
+        <button onClick={() => toggleSortEvents("eventTimestamp")}>
           <span
             className="iconify text-xl"
             data-icon="quill:calendar"
@@ -42,25 +43,18 @@ const EventsList = ({
       </div>
 
       <div className="flex h-72 w-full flex-col gap-y-2 overflow-y-scroll rounded-b-base rounded-t-none border border-t-0 border-secondaryBlack bg-white p-2 max-md:text-sm md:h-96">
-        {data.length ? (
-          data.map(({ id, eventTitle, eventTimestamp }) => (
+        {events.length ? (
+          events.map(({ id, eventTitle, eventTimestamp }) => (
             <div
               key={id}
-              className="group flex w-full gap-x-2 rounded-md p-2 even:bg-accentLight/30 has-[:checked]:!bg-main/60"
+              className="group flex w-full gap-x-2 rounded-md p-2 even:bg-accentLight/30 has-[:checked]:!bg-yellow-200/40"
             >
               <input
                 type="checkbox"
                 className="peer"
                 name={id}
                 id={id}
-                onChange={(event) => {
-                  const { checked } = event.target;
-                  setActiveEvents((prev: string[]) =>
-                    checked
-                      ? [...prev, id]
-                      : prev.filter((eventId) => eventId !== id),
-                  );
-                }}
+                onChange={() => toggleActiveEvent(id)}
                 checked={activeEvents.includes(id)}
               />
               <label

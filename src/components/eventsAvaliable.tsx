@@ -3,55 +3,55 @@
 import React from "react";
 import EventsList from "./list";
 import SelectButtons from "./selectButtons";
-import { returnUpdatedLists } from "@/utils/functions";
-import { EventContainerProps } from "../../types";
+import { UseListHook } from "../../types";
+import useListHook from "@/utils/hooks/useListHook";
+import { twMerge } from "tailwind-merge";
 
-const AvaliableEvents = ({
-  data,
-  activeEvents,
-  setActiveEvents,
-  updateList,
-}: EventContainerProps) => {
-  const handleUpdateList = () => {
-    const updates = returnUpdatedLists(data, activeEvents);
-    updateList(updates);
-  };
-
-  const toggleSelectEvents = () => {
-    if (activeEvents.length === data.length) {
-      setActiveEvents([]);
-    } else {
-      const allEventIds = data.map(({ id }) => id);
-      setActiveEvents(allEventIds);
-    }
-  };
-
-  const deselectEvents = () => setActiveEvents([]);
+const AvaliableEvents = ({ data, updateData }: UseListHook) => {
+  const {
+    events,
+    activeEvents,
+    toggleActiveEvent,
+    toggleAllActiveEvents,
+    clearActiveEvents,
+    updateEventsData,
+    toggleSortEvents,
+  } = useListHook({ data, updateData });
 
   return (
-    <div className="flex flex-col rounded-base border-2 border-secondaryBlack bg-white p-4 py-2 shadow-light">
+    <div
+      className={twMerge(
+        "flex flex-col rounded-base border-2 border-secondaryBlack bg-white p-4 py-2 shadow-light",
+        data.length > 0
+          ? "border-secondaryBlack bg-accent/40 shadow-accent"
+          : "border-secondaryBlack bg-white",
+      )}
+    >
       <div className="flex flex-col text-center">
-        <h2 className="mb-0 text-center">Avaliable Events</h2>
+        <h2 className="text-center decoration-accent decoration-wavy decoration-2 underline-offset-8 hover:underline">
+          Avaliable Events ({events.length})
+        </h2>
         <p>A list of all the customer's purchased events</p>
       </div>
 
       <div className="flex flex-col justify-between gap-x-2">
         <div className="my-4 flex w-full gap-2 max-lg:flex-col">
           <SelectButtons
-            toggleSelectEvents={toggleSelectEvents}
-            deselectEvents={deselectEvents}
+            toggleActiveEvent={toggleActiveEvent}
+            toggleAllActiveEvents={toggleAllActiveEvents}
+            clearActiveEvents={clearActiveEvents}
             activeEvents={activeEvents}
-            data={data}
+            events={data}
           />
           <button
             disabled={activeEvents.length === 0}
-            onClick={handleUpdateList}
-            className="cta-button flex justify-center rounded-base bg-green-200 p-4 text-lg font-bold underline disabled:font-normal disabled:no-underline max-lg:w-full md:ml-auto"
+            onClick={updateEventsData}
+            className="button move-action-button bg-green-200"
           >
-            <span className="flex flex-row items-center gap-x-2">
-              Add {activeEvents.length} Event(s)!
+            <span className="flex flex-row items-center gap-x-2 font-bold disabled:font-normal">
+              Add {activeEvents.length} Event(s)
               <span
-                className="iconify text-lg max-lg:rotate-90 lg:text-xl"
+                className="iconify max-lg:rotate-90 lg:text-xl"
                 data-icon="mdi:arrow-right-bold"
                 data-inline="true"
               />
@@ -64,9 +64,10 @@ const AvaliableEvents = ({
           icon: "mingcute:happy-line",
           message: "All Events Selected!",
         }}
-        data={data}
+        events={events}
         activeEvents={activeEvents}
-        setActiveEvents={setActiveEvents}
+        toggleActiveEvent={toggleActiveEvent}
+        toggleSortEvents={toggleSortEvents}
       />
     </div>
   );

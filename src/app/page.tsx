@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { Event } from "../../types";
 import AvaliableEvents from "@/components/eventsAvaliable";
 import SelectedEvents from "@/components/eventsSelected";
-import GeneratedIds from "@/components/generatedEventIds";
+import EventIdsList from "@/components/eventIdsList";
 
 export default function Home() {
   const eventIdsRef = useRef<HTMLDivElement>(null);
@@ -14,14 +14,10 @@ export default function Home() {
     customer: { name, id, email, purchasedEvents },
   } = data;
 
-  const [availableEvents, setAvailableEvents] = useState<Event[] | []>(
-    purchasedEvents,
-  );
-  const [eventsToAdd, setEventsToAdd] = useState<string[]>([]);
-  const [selectedEvents, setSelectedEvents] = useState<Event[] | []>([]);
-  const [eventsToReturn, setEventsToReturn] = useState<string[]>([]);
-
-  const [showEventIds, setShowEventIds] = useState<string[]>([]);
+  const [availableEvents, setAvailableEvents] =
+    useState<Event[]>(purchasedEvents);
+  const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
+  const [showEventIds, setShowEventIds] = useState<Event["id"][]>([]);
 
   const handleAddEvents = (sortedEvents: {
     filtered: Event[];
@@ -29,8 +25,6 @@ export default function Home() {
   }) => {
     setAvailableEvents(sortedEvents.remaining);
     setSelectedEvents([...sortedEvents.filtered, ...selectedEvents]);
-    setEventsToAdd([]);
-    setShowEventIds([]);
   };
 
   const handleRemoveEvents = (sortedEvents: {
@@ -39,8 +33,6 @@ export default function Home() {
   }) => {
     setSelectedEvents(sortedEvents.remaining);
     setAvailableEvents([...sortedEvents.filtered, ...availableEvents]);
-    setEventsToReturn([]);
-    setShowEventIds([]);
   };
 
   const generateEventIds = () => {
@@ -61,24 +53,28 @@ export default function Home() {
           <div>Id: {id}</div>
           <div>Email: {email}</div>
         </div>
-        <div className="flex flex-col items-baseline justify-center *:flex-1 max-lg:gap-y-8 lg:flex-row lg:justify-evenly lg:gap-x-4">
+        <div className="grid grid-flow-col grid-cols-1 flex-col items-baseline justify-center *:h-full md:grid-cols-2 md:gap-x-8">
           <AvaliableEvents
-            updateList={handleAddEvents}
+            updateData={handleAddEvents}
             data={availableEvents}
-            activeEvents={eventsToAdd}
-            setActiveEvents={setEventsToAdd}
           />
           <SelectedEvents
-            updateList={handleRemoveEvents}
+            updateData={handleRemoveEvents}
             data={selectedEvents}
-            activeEvents={eventsToReturn}
-            setActiveEvents={setEventsToReturn}
-            generateEventIds={generateEventIds}
           />
         </div>{" "}
+        <div className="flex justify-end">
+          <button
+            disabled={selectedEvents.length === 0}
+            className="button w-full rounded-md bg-main p-2 text-2xl hover:font-bold lg:w-[calc(50%-16px)]"
+            onClick={generateEventIds}
+          >
+            Generate {selectedEvents.length} Event Id(s)
+          </button>
+        </div>
         <div id="event-ids" ref={eventIdsRef}>
           {!!showEventIds.length && (
-            <GeneratedIds showEventIds={showEventIds} />
+            <EventIdsList showEventIds={showEventIds} />
           )}
         </div>
       </div>
