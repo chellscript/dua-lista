@@ -46,14 +46,15 @@ export default function Home() {
   };
 
   return (
-    <div className="flex size-fit min-h-full min-w-full flex-col items-center justify-center gap-y-4 bg-mainLight p-4 pb-10">
-      <div className="website-max-width flex w-11/12 flex-col gap-y-4">
+    <div className="flex min-h-full flex-col items-center gap-y-4 bg-mainLight p-8 py-20">
+      <div className="website-max-width flex flex-col gap-y-4 xl:w-11/12">
+        <h1>Customer Profile</h1>
         <div className="text-xl">
           <div>Name: {name}</div>
           <div>Id: {id}</div>
           <div>Email: {email}</div>
         </div>
-        <div className="grid grid-flow-row grid-cols-1 flex-col items-baseline justify-center *:h-full max-md:gap-y-8 md:grid-flow-col md:grid-cols-2 md:gap-x-8">
+        <div className="grid grid-flow-row grid-cols-1 flex-col items-baseline justify-center *:h-full max-lg:gap-y-8 lg:grid-flow-col lg:grid-cols-2 lg:gap-x-8">
           <AvaliableEvents
             updateData={handleAddEvents}
             data={availableEvents}
@@ -66,10 +67,14 @@ export default function Home() {
         <div className="flex justify-end">
           <button
             disabled={selectedEvents.length === 0}
-            className="button w-full rounded-md bg-main p-2 text-2xl hover:font-bold md:w-[calc(50%-16px)]"
+            className="button w-full rounded-md bg-main p-2 text-2xl hover:font-bold lg:w-[calc(50%-16px)]"
             onClick={generateEventIds}
           >
-            Generate {selectedEvents.length} Event Id(s)
+            Generate
+            <span className="ml-3 rounded-md bg-white p-1">
+              {selectedEvents.length}
+            </span>{" "}
+            Event Id(s)
           </button>
         </div>
         <div id="event-ids" ref={eventIdsRef}>

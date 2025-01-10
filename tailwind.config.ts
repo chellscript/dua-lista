@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-// const plugin = require('tailwindcss/plugin');
+// const plugin = require("tailwindcss/plugin");
 import type { Config } from "tailwindcss";
 
 export default {
@@ -13,21 +13,23 @@ export default {
       colors: {
         main: "#FD9745", //brand color
         mainLight: "#fff4e0",
+        mainDark: "#f36e03",
         accent: "#92cdfd",
         accentLight: "#c4e4fe",
+        accentDark: "#47abfc",
+        actionButton: "#c4db58",
+        actionButtonDark: "#acac39",
         darkBg: "#272933",
         darkText: "#eeefe9",
         darkBorder: "#000",
-        secondaryBlack: "#291919",
+        secondaryBlack: "#190f0f",
       },
       borderRadius: {
         base: "10px",
       },
       boxShadow: {
-        light: "2px 3px 0px 0px #000",
-        main: "2px 3px 0px 0px #fff4e0",
-        accent: "2px 3px 0px 0px #c4e4fe",
-        dark: "2px 3px 0px 0px #000",
+        light: "2px 3px 0px 0px #190f0f",
+        dark: "2px 3px 0px 0px #190f0f",
       },
       translate: {
         boxShadowX: "2px",
@@ -41,5 +43,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("tailwind-scrollbar")],
 } satisfies Config;

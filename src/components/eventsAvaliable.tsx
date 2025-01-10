@@ -2,10 +2,9 @@
 
 import React from "react";
 import EventsList from "./list";
-import SelectButtons from "./selectButtons";
+import { BulkSelectButtons, ListActionButton } from "./buttons";
 import { UseListHook } from "../../types";
 import useListHook from "@/utils/hooks/useListHook";
-import { twMerge } from "tailwind-merge";
 
 const AvaliableEvents = ({ data, updateData }: UseListHook) => {
   const {
@@ -19,44 +18,46 @@ const AvaliableEvents = ({ data, updateData }: UseListHook) => {
   } = useListHook({ data, updateData });
 
   return (
-    <div
-      className={twMerge(
-        "flex flex-col rounded-base border-2 border-secondaryBlack bg-white p-4 py-2 shadow-light",
-        data.length > 0
-          ? "border-secondaryBlack bg-accent/60 shadow-dark"
-          : "border-secondaryBlack bg-white",
-      )}
-    >
+    <div className="list bg-accentLight shadow-accent">
       <div className="flex flex-col text-center">
-        <h2 className="text-center decoration-white decoration-wavy decoration-2 underline-offset-8 hover:underline">
-          Avaliable Events ({events.length})
+        <h2 className="group text-center font-mono">
+          <span className="decoration-white decoration-wavy decoration-2 underline-offset-8 group-hover:underline">
+            Avaliable Events
+          </span>
+          <span className="ml-3 rounded-md bg-white p-1">
+            [{events.length}]
+          </span>
         </h2>
         <p>A list of all the customer's purchased events</p>
       </div>
-
       <div className="flex flex-col justify-between gap-x-2">
-        <div className="my-4 flex w-full justify-between gap-2 max-lg:flex-col">
-          <SelectButtons
-            toggleActiveEvent={toggleActiveEvent}
+        <div className="button-container max-md:flex-col">
+          <BulkSelectButtons
             toggleAllActiveEvents={toggleAllActiveEvents}
             clearActiveEvents={clearActiveEvents}
             activeEvents={activeEvents}
             events={data}
           />
-          <button
-            disabled={activeEvents.length === 0}
-            onClick={updateEventsData}
-            className="button move-action-button bg-green-200"
+          <ListActionButton
+            updateEventsData={updateEventsData}
+            activeEvents={activeEvents}
+            className="flex-row-reverse lg:flex-row"
           >
-            <span className="flex flex-row items-center gap-x-2 font-bold disabled:font-normal">
-              Add {activeEvents.length} Event(s)
-              <span
-                className="iconify max-lg:rotate-90 lg:text-xl"
-                data-icon="mdi:arrow-right-bold"
-                data-inline="true"
-              />
-            </span>
-          </button>
+            <div className="list-action-button-label">
+              <span>Add </span>
+              <span>
+                <span className="rounded-md bg-white px-2 text-xl">
+                  [{activeEvents.length}]
+                </span>{" "}
+                Event(s)
+              </span>{" "}
+            </div>
+            <span
+              className="iconify text-xl max-lg:rotate-90 lg:text-3xl"
+              data-icon="mdi:arrow-right-bold"
+              data-inline="true"
+            />
+          </ListActionButton>
         </div>
       </div>
       <EventsList

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Event, ListHookProps } from "../../types";
+import { ListHookProps } from "../../types";
 import { formatDateTime } from "@/utils/dateParser";
 import NoEvent from "./listEmpty";
 
@@ -22,9 +22,12 @@ const EventsList = ({
   emptyState: { icon, message },
 }: EventsListProps) => {
   return (
-    <>
-      <div className="grid w-full auto-cols-max grid-cols-2 gap-4 rounded-base rounded-b-none border border-secondaryBlack bg-white p-2 pl-4 font-bold *:flex *:items-center *:gap-x-2 max-md:text-base">
-        <button onClick={() => toggleSortEvents("eventTitle")}>
+    <div className="flex size-full shrink flex-col">
+      <div className="grid w-full grid-cols-2 gap-4 rounded-base rounded-b-none border border-secondaryBlack bg-white p-2 pl-4 font-bold max-md:text-base">
+        <button
+          className="event-headers"
+          onClick={() => toggleSortEvents("eventTitle")}
+        >
           <span
             className="iconify text-xl"
             data-icon="lets-icons:star"
@@ -32,7 +35,10 @@ const EventsList = ({
           />{" "}
           Event Name
         </button>
-        <button onClick={() => toggleSortEvents("eventTimestamp")}>
+        <button
+          className="event-headers"
+          onClick={() => toggleSortEvents("eventTimestamp")}
+        >
           <span
             className="iconify text-xl"
             data-icon="quill:calendar"
@@ -41,13 +47,12 @@ const EventsList = ({
           Date{" "}
         </button>
       </div>
-
-      <div className="flex h-72 w-full flex-col gap-y-2 overflow-y-scroll rounded-b-base rounded-t-none border border-t-0 border-secondaryBlack bg-white p-2 max-md:text-sm md:h-96">
+      <div className="h-52 grow overflow-y-scroll border border-secondaryBlack border-t-transparent bg-white max-md:overflow-x-auto lg:h-72">
         {events.length ? (
           events.map(({ id, eventTitle, eventTimestamp }) => (
             <div
               key={id}
-              className="group flex w-full gap-x-2 rounded-md p-2 even:bg-accentLight/30 has-[:checked]:!bg-yellow-200/40"
+              className="group flex w-full max-w-full gap-x-2 rounded-md p-2 even:bg-accentLight/30 has-[:checked]:bg-amber-200/60"
             >
               <input
                 type="checkbox"
@@ -81,7 +86,7 @@ const EventsList = ({
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

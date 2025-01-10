@@ -4,7 +4,7 @@
 
 @layer base {
   .website-max-width {
-    @apply w-full xl:max-w-screen-2xl;
+    @apply w-full xl:max-w-screen-xl;
   }
 
   html {
@@ -36,14 +36,34 @@
 
 @layer components {
   .button {
-    @apply border border-secondaryBlack bg-white px-1 font-mono text-sm shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none hover:transition-transform hover:duration-200 hover:ease-in-out;
+    @apply border border-secondaryBlack bg-white px-1 font-mono text-sm shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:font-bold hover:shadow-none hover:transition-transform hover:duration-200 hover:ease-in-out;
 
     &:disabled {
-      @apply translate-x-0 translate-y-0 border bg-gray-300 shadow-none hover:grayscale;
+      @apply translate-x-0 translate-y-0 border-0 bg-gray-300 text-black shadow-none hover:font-normal hover:grayscale;
     }
   }
 
-  .move-action-button {
-    @apply flex justify-center p-2 text-base font-bold underline disabled:font-normal disabled:no-underline max-lg:w-full;
+  .list-action-button {
+    @apply flex size-full justify-center p-2 text-base disabled:font-normal disabled:no-underline;
+  }
+
+  .list-action-button-label {
+    @apply flex w-full flex-row flex-wrap items-center p-0 px-2 text-lg max-lg:justify-center max-lg:gap-x-2 lg:flex-col;
+  }
+
+  .select-button {
+    @apply flex flex-nowrap items-center justify-center gap-x-2 border border-secondaryBlack bg-white p-2 text-center md:text-nowrap lg:p-3;
+  }
+
+  .list {
+    @apply flex h-full flex-col rounded-base border-2 border-secondaryBlack bg-white p-4 shadow-light max-sm:p-2 lg:py-8;
+  }
+
+  .event-headers {
+    @apply flex items-center gap-x-2;
+  }
+
+  .button-container {
+    @apply my-4 flex w-full items-center justify-between max-md:gap-y-6;
   }
 }

@@ -11,7 +11,9 @@ const useListHook = ({ data, updateData }: UseListHook) => {
   }, [data]);
 
   const toggleSortEvents = (property: keyof Event) => {
-    let updatedList = events.sort((a, b) => Number(a[property] < b[property]));
+    const updatedList = events.sort((a, b) =>
+      Number(a[property] < b[property]),
+    );
     setEvents(updatedList);
   };
 
