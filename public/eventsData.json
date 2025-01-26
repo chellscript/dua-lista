@@ -3,7 +3,14 @@
     "id": "eventfullySarah123",
     "name": "Sarah Socialite",
     "email": "sarah.socialite@example.com",
+    "joined": 1483228800000,
     "purchasedEvents": [
+      {
+        "id": "b2f64d8c-9c3f-4abc-a51a-5e647ed3f2b4",
+        "eventTitle": "Dua Lista: Future Nostalgia Checklist Tour",
+        "eventTimestamp": 1680388800000,
+        "purchaseTimestamp": 1680302400000
+      },
       {
         "id": "e1f64d2b-4b2c-4fc9-b51a-4e647cd3f1a3",
         "eventTitle": "The Annual Charity Ball with an Incredibly Long and Unnecessarily Elaborate Title That Seems to Go On Forever and Ever Without Any Real Reason Other Than to Test the Limits of How Much Text Can Be Displayed in a Field",

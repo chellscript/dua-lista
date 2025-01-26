@@ -17,14 +17,14 @@ const SelectedEvents = ({ data, updateData }: UseListHook) => {
   } = useListHook({ data, updateData });
 
   return (
-    <div className="list border-secondaryBlack bg-main/50 shadow-main">
+    <div className="list border-secondaryBlack bg-orange-400/50 shadow-orange-500">
       <div className="flex flex-col text-center">
         <h2 className="group text-center font-mono">
           <span className="decoration-main decoration-wavy decoration-2 underline-offset-8 group-hover:underline">
             Selected Events
           </span>
-          <span className="ml-3 rounded-md bg-white p-1">
-            [{events.length}]
+          <span className="ml-3 rounded-md bg-white px-2 py-1">
+            {events.length}
           </span>
         </h2>
         <p>Selected events to generate Event Ids</p>
@@ -47,7 +47,7 @@ const SelectedEvents = ({ data, updateData }: UseListHook) => {
               <span>
                 {" "}
                 <span className="rounded-md bg-white px-2 text-xl">
-                  [{activeEvents.length}]
+                  {activeEvents.length}
                 </span>{" "}
                 Event(s)
               </span>{" "}

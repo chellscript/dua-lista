@@ -18,14 +18,14 @@ const AvaliableEvents = ({ data, updateData }: UseListHook) => {
   } = useListHook({ data, updateData });
 
   return (
-    <div className="list bg-accentLight shadow-accent">
+    <div className="list bg-sky-300 shadow-accent">
       <div className="flex flex-col text-center">
         <h2 className="group text-center font-mono">
           <span className="decoration-white decoration-wavy decoration-2 underline-offset-8 group-hover:underline">
             Avaliable Events
           </span>
-          <span className="ml-3 rounded-md bg-white p-1">
-            [{events.length}]
+          <span className="ml-3 rounded-md bg-white px-2 py-1">
+            {events.length}
           </span>
         </h2>
         <p>A list of all the customer's purchased events</p>
@@ -47,7 +47,7 @@ const AvaliableEvents = ({ data, updateData }: UseListHook) => {
               <span>Add </span>
               <span>
                 <span className="rounded-md bg-white px-2 text-xl">
-                  [{activeEvents.length}]
+                  {activeEvents.length}
                 </span>{" "}
                 Event(s)
               </span>{" "}

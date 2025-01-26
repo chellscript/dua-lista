@@ -57,7 +57,7 @@ export const ListActionButton = ({
   <button
     disabled={activeEvents.length === 0}
     onClick={updateEventsData}
-    className="list-action-button button bg-actionButton shadow-actionButtonDark h-fit w-fit rounded-lg border"
+    className="list-action-button button size-fit rounded-lg border bg-actionButton shadow-actionButtonDark"
   >
     <div
       className={twMerge(

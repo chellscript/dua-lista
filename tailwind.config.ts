@@ -30,6 +30,7 @@ export default {
       boxShadow: {
         light: "2px 3px 0px 0px #190f0f",
         dark: "2px 3px 0px 0px #190f0f",
+        field: "inset -3px -3px #5254562b",
       },
       translate: {
         boxShadowX: "2px",
